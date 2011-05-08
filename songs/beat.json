@@ -1,0 +1,17 @@
+[
+    { "note" : "E3", "durations" : [
+        { "beats" : 0.3, "text" : "hello" },
+        { "beats" : 0.3, "text" : "world" }
+    ] },
+    { "rest" : 0.5 },
+    { "note" : "C3", "durations" : [
+        { "beats" : 0.3, "text" : "how" }
+    ] },
+    { "note" : "B3", "durations" : [
+        { "beats" : 0.3, "text" : "are" }
+    ] },
+    { "rest" : 0.5 },
+    { "note" : "G2", "durations" : [
+        { "beats" : 0.3, "text" : "you" }
+    ] }
+]

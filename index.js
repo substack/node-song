@@ -11,29 +11,38 @@ module.exports = function () {
     
     var festival = spawn('festival', [ '-i' ]);
     
+    function pitcher (pitch) {
+        if (pitch.rest) {
+            return '<REST BEATS='
+                + JSON.stringify(pitch.rest.toString()) + '>'
+                + '</REST>'
+            ;
+        }
+        else if (pitch.note) {
+            return '<PITCH NOTE='
+                + JSON.stringify(pitch.note.toString())
+                + '>'
+                + pitch.durations
+                    .map(function (d) {
+                        return '<DURATION BEATS='
+                            + JSON.stringify(d.beats.toString())
+                            + '>' + d.text + '</DURATION>';
+                    })
+                    .join('\n')
+                + '</PITCH>'
+            ;
+        }
+        else {
+            throw new Error('Pitch has no note or rest');
+        }
+    }
+    
     return function (song) {
         var xml = '<?xml version="1.0"?>\n'
             + '<!DOCTYPE SINGING PUBLIC "-//SINGING//DTD SINGING mark up//EN"'
             + ' "Singing.v0_1.dtd" []>\n'
             + '<SINGING BPM="30">'
-            + song
-                .map(function (pitch) {
-                    if (!pitch.note) throw new Error('Pitch has no note');
-                    
-                    return '<PITCH NOTE='
-                        + JSON.stringify(pitch.note.toString())
-                        + '>'
-                        + pitch.durations
-                            .map(function (d) {
-                                return '<DURATION BEATS='
-                                    + JSON.stringify(d.beats.toString())
-                                    + '>' + d.text + '</DURATION>';
-                            })
-                            .join('\n')
-                        + '</PITCH>\n'
-                    ;
-                })
-                .join('\n')
+            + song.map(pitcher).join('\n')
             + '</SINGING>'
         ;
         
