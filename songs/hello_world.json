@@ -1,0 +1,6 @@
+[
+    { "note" : "E3", "durations" : [
+        { "beats" : 0.3, "text" : "hello" },
+        { "beats" : 0.3, "text" : "world" }
+    ] }
+]

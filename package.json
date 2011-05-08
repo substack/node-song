@@ -1,0 +1,33 @@
+{
+    "name" : "song",
+    "description" : "Sing songs with festival",
+    "version" : "0.0.1",
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/substack/node-song.git"
+    },
+    "main" : "./index.js",
+    "bin" : {
+        "sing" : "./cli.js"
+    },
+    "keywords" : [
+        "festival",
+        "speech",
+        "synthesis",
+        "audio",
+        "sound",
+        "song"
+    ],
+    "directories" : {
+        "lib" : "."
+    },
+    "engines" : {
+        "node" : ">=0.4.0"
+    },
+    "license" : "MIT/X11",
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    }
+}
