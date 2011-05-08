@@ -8,7 +8,7 @@
     },
     "main" : "./index.js",
     "bin" : {
-        "sing" : "./cli.js"
+        "song" : "./cli.js"
     },
     "keywords" : [
         "festival",
